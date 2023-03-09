@@ -15,7 +15,7 @@ if "DYNO" in os.environ:
 
 @app.route("/")
 def index():
-    return render_template("home/index.html")
+    return render_template("home/index.html", **template_config)
 
 
 if __name__ == "__main__":
