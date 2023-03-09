@@ -1,0 +1,10 @@
+[info]
+name = "Zachary Spar"
+email = "zachspar <at> gmail dot <com>"
+phone = ""
+location = "New York, NY"
+job_title = "Backend Software Engineer"
+
+[tools]
+frameworks = ["Linux / Unix", "Django", "Flask", "Nginx", "AWS", "Git", "Batch / BCP / ETL"]
+languages = ["Python", "Perl", "C++", "Java", "SQL"]
