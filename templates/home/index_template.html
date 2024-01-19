@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ info.title }}</title>
+    <meta charset="{{ info.charset }}">
+    <meta name="viewport" content="{{ info.viewport }}">
+    {% for style in styles.css %}
+        <link rel="stylesheet" href="{{ style }}">
+    {% endfor %}
+    <link rel="shortcut icon" href="{% if favicon.local %} {{ url_for('static', filename=favicon.local) }} {% elif favicon.src %} {{ favicon.src }} {% endif %}" type="image/x-icon" />
+    <style>
+        html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+    </style>
+</head>
+<body class="{{ body.class }}">
+
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+    <div class="w3-row-padding">
+
+        <!-- Left Column -->
+        <div class="w3-third">
+            <div class="w3-white w3-text-grey w3-card-4">
+                <div class="w3-display-container">
+                    <img src="{% if image.local %}{{ url_for('static', filename=image.local) }} {% elif image.src %} {{ image.src }} {% endif %}" style="width:100%" alt="Headshot">
+                    <div class="w3-display-bottomleft w3-container w3-text-black">
+                        <h2>{{ personal_info.name }}</h2>
+                    </div>
+                </div>
+                <div class="w3-container">
+                    <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-blue"></i>{{ personal_info.position }}</p>
+                    <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-blue"></i>{{ personal_info.location }}</p>
+                    <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-blue"></i>{{ personal_info.email }}</p>
+                    <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-blue"></i>{{ personal_info.phone }}</p>
+                    <hr>
+
+                    <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-blue"></i>Tools / Frameworks</b></p>
+                    <ul>
+                        {% for tool in tools_frameworks.list %}
+                            <li><p>{{ tool }}</p></li>
+                        {% endfor %}
+                    </ul>
+                    <hr>
+                    <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-blue"></i>Languages</b></p>
+                    <ul>
+                        {% for language in languages.list %}
+                            <li><p>{{ language }}</p></li>
+                        {% endfor %}
+                    </ul>
+                    <br>
+                </div>
+            </div><br>
+        </div>
+
+        <!-- Right Column -->
+        <div class="w3-twothird">
+            <!-- Education Section -->
+            <div class="w3-container w3-card w3-white">
+                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-blue"></i>Education</h2>
+                <div class="w3-container">
+                    {% for edu in education %}
+                        <h5 class="w3-opacity"><b class="w3-hover-yellow">{{ edu.university }}</b></h5>
+                        <h7 class="w3-opacity"><b class="w3-hover-blue">{{ edu.college }}</b></h7>
+                        <br>
+                        <h8 class="w3-opacity"><b>{{ edu.location }}</b></h8>
+                        <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ edu.year }}</h6>
+                        <p>{{ edu.degree }}</p>
+                        <p>Major: {{ edu.major }}</p>
+                        {% if not loop.last %}
+                            <hr>
+                        {% else %}
+                            <br>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <br>
+
+            <!-- Work Experience Section -->
+            <div class="w3-container w3-card w3-white w3-margin-bottom">
+            <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-blue"></i>Work Experience</h2>
+            {% for work_exp in work_experience %}
+                    <div class="w3-container">
+                        <h5 class="w3-opacity"><b>{{ work_exp.company }}</b></h5>
+                        <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ work_exp.duration }}</h6>
+                        <ul>
+                            {% for task in work_exp.tasks %}
+                                <li><p>{{ task }}</p></li>
+                            {% endfor %}
+                        </ul>
+                    {% if not loop.last  %}
+                        <hr>
+                    {% else %}
+                        <br>
+                    {% endif %}
+                    </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

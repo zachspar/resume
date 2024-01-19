@@ -1,0 +1,96 @@
+[info]
+title = "Zachary Spar - Resume"
+charset = "UTF-8"
+viewport = "width=device-width, initial-scale=1"
+
+[styles]
+css = ["https://www.w3schools.com/w3css/4/w3.css", "https://fonts.googleapis.com/css?family=Roboto", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]
+
+[body]
+class = "w3-light-grey"
+
+[image]
+src = ""  # you can either specify an image URL
+local = "home/SPAR_headshot.jpeg"  # or a local file within the static folder
+alt = "Headshot"
+
+[favicon]
+src = ""  # you can either specify an image URL
+local = "home/favicon.ico"  # or a local file within the static folder
+
+[personal_info]
+name = "Zachary Spar"
+position = "Backend Software Engineer"
+location = "New York, NY"
+email = "zachspar@gmail.com"
+phone = "(914) 486-8258"
+
+[tools_frameworks]
+list = ["Linux / Unix", "Django (Original / REST / Channels)", "Flask", "Nginx", "AWS", "Git", "Batch / BCP / ETL"]
+
+[languages]
+list = ["Python (2 & 3)", "Perl", "C++", "Java", "SQL"]
+
+[[education]]
+university = "UNIVERSITY OF MICHIGAN"
+college = "College of Engineering"
+location = "Ann Arbor, MI"
+year = "2015 - 2019"
+degree = "Bachelor of Science in Engineering, May 2019"
+major = "Computer Science"
+
+[[work_experience]]
+company = "Ampla Technologies, New York, NY"
+position = "Software Engineer II - Growth Capital"
+duration = "Dec 2021 – Jan 2024"
+tasks = [
+    "Initiated and executed Growth-Line-of-Credit (GLOC) ACH automation project, achieving flawless daily imports, a 99% audit reconciliation rate for GLOC customers, and enhanced process efficiency",
+    "Collaborated closely with Risk team to resolve complex customer-centric issues, implementing comprehensive features and infrastructure improvements to enhance internal processes",
+    "Led implementation of SFTP system and standardized incoming Mailchimp webhooks, optimizing data management capabilities and setting the stage for future projects",
+    "Maintained open communication and stakeholder collaboration, contributing to improved customer experiences; played a key role in the growth transition from a team of 35 to over 100 employees"
+]
+
+[[work_experience]]
+company = "MORGAN STANLEY - E*TRADE, New York, NY"
+position = "Software Engineer I - Wealth Management Tech"
+duration = "Jun 2019 – Dec 2021"
+tasks = [
+    "Upgraded out-of-date IPO services and interfaces for middle office advisors",
+    "Assembled real-time IPO service pipeline for deals and customer orders flowing from E*TRADE to Morgan Stanley",
+    "Composed and documented critical daily batch processes for advisor equities, mutual funds, and fees",
+    "Delineated and optimized legacy C services",
+    "Scripted bulk copy programs to facilitate management fee calculations and analysis",
+    "Produced manipulable Job Control Language code generator written in Python"
+]
+
+[[work_experience]]
+company = "UNDERGROUND SOUND, New York, NY"
+position = "Co-Founder & CTO"
+duration = "Nov 2020 – Present"
+tasks = [
+    "Maintained version control, test suites, API & websocket framework documentation, and general application deployments",
+    "Implemented fault-tolerant and auto-scaling backend system to run API and websocket servers",
+    "Built continuous integration pipeline for staging and production, resulting in zero downtime application updates",
+    "On App Store: 'Underground Sound – UGS'"
+]
+
+[[work_experience]]
+company = "DARKOWL, Denver, CO"
+position = "Technology Team Intern"
+duration = "Jun 2018 – Sep 2018"
+tasks = [
+    "Designed plugin transforms analyzing API sourced data to visually display sensitive information on Maltego software platform",
+    "Developed client-requested dynamic display of customizable data characteristics using company API",
+    "Illustrated client-facing Python library, facilitating access to proprietary DarkOwl API",
+    "Optimized internal legacy processes with streamlined programming using Python and Java"
+]
+
+[[work_experience]]
+company = "ELLIOTT MANAGEMENT CORPORATION, New York, NY"
+position = "Summer Technology Analyst"
+duration = "Jun 2017 – Sep 2017"
+tasks = [
+    "Constructed interactive graphic portfolio interface displaying relevant financial indicators for company-held securities",
+    "Scripted autonomous Python applet that tracked and processed recent IPO's",
+    "Assisted senior technology team in full database encryption and security monitoring"
+]
