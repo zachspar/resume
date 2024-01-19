@@ -1,0 +1,22 @@
+{
+  "name": "Simple Resume Website",
+  "description": "A simple yet configurable resume website.",
+  "keywords": [
+    "python",
+    "flask",
+    "jinja2",
+    "resume",
+    "website"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  }
+}
