@@ -10,8 +10,13 @@ css = ["https://www.w3schools.com/w3css/4/w3.css", "https://fonts.googleapis.com
 class = "w3-light-grey"
 
 [image]
-src = "{{ url_for('static', filename='home/SPAR_headshot.jpeg') }}"
+src = ""  # you can either specify an image URL
+local = "home/SPAR_headshot.jpeg"  # or a local file within the static folder
 alt = "Headshot"
+
+[favicon]
+src = ""  # you can either specify an image URL
+local = "home/favicon.ico"  # or a local file within the static folder
 
 [personal_info]
 name = "Zachary Spar"
@@ -35,8 +40,20 @@ degree = "Bachelor of Science in Engineering, May 2019"
 major = "Computer Science"
 
 [[work_experience]]
-company = "MORGAN STANLEY - E*TRADE"
-year = "2019 - Current"
+company = "Ampla Technologies, New York, NY"
+position = "Software Engineer II - Growth Capital"
+duration = "Dec 2021 – Jan 2024"
+tasks = [
+    "Initiated and executed Growth-Line-of-Credit (GLOC) ACH automation project, achieving flawless daily imports, a 99% audit reconciliation rate for GLOC customers, and enhanced process efficiency",
+    "Collaborated closely with Risk team to resolve complex customer-centric issues, implementing comprehensive features and infrastructure improvements to enhance internal processes",
+    "Led implementation of SFTP system and standardized incoming Mailchimp webhooks, optimizing data management capabilities and setting the stage for future projects",
+    "Maintained open communication and stakeholder collaboration, contributing to improved customer experiences; played a key role in the growth transition from a team of 35 to over 100 employees"
+]
+
+[[work_experience]]
+company = "MORGAN STANLEY - E*TRADE, New York, NY"
+position = "Software Engineer I - Wealth Management Tech"
+duration = "Jun 2019 – Dec 2021"
 tasks = [
     "Upgraded out-of-date IPO services and interfaces for middle office advisors",
     "Assembled real-time IPO service pipeline for deals and customer orders flowing from E*TRADE to Morgan Stanley",
@@ -47,30 +64,33 @@ tasks = [
 ]
 
 [[work_experience]]
-company = "UNDERGROUND SOUND (My side hustle)"
-year = "2020 - Current"
+company = "UNDERGROUND SOUND, New York, NY"
+position = "Co-Founder & CTO"
+duration = "Nov 2020 – Present"
 tasks = [
-    "Co-founder, current acting CTO, backend system architect & engineer, and product manager",
-    "Implemented fault-tolerant & auto-scaled backend system to run API and websocket servers",
+    "Maintained version control, test suites, API & websocket framework documentation, and general application deployments",
+    "Implemented fault-tolerant and auto-scaling backend system to run API and websocket servers",
     "Built continuous integration pipeline for staging and production, resulting in zero downtime application updates",
-    "Maintain version control, test suites, API & websocket framework documentation and general application deployments"
+    "On App Store: 'Underground Sound – UGS'"
 ]
 
 [[work_experience]]
-company = "DARKOWL"
-year = "2018"
+company = "DARKOWL, Denver, CO"
+position = "Technology Team Intern"
+duration = "Jun 2018 – Sep 2018"
 tasks = [
-    "Designed plugin transforms analyzing API sourced data to visually display sensitive information on the Maltego software platform",
+    "Designed plugin transforms analyzing API sourced data to visually display sensitive information on Maltego software platform",
     "Developed client-requested dynamic display of customizable data characteristics using company API",
     "Illustrated client-facing Python library, facilitating access to proprietary DarkOwl API",
     "Optimized internal legacy processes with streamlined programming using Python and Java"
 ]
 
 [[work_experience]]
-company = "ELLIOTT MANAGEMENT CORPORATION"
-year = "2017"
+company = "ELLIOTT MANAGEMENT CORPORATION, New York, NY"
+position = "Summer Technology Analyst"
+duration = "Jun 2017 – Sep 2017"
 tasks = [
     "Constructed interactive graphic portfolio interface displaying relevant financial indicators for company-held securities",
-    "Scripted autonomous Python applet that tracked and processed recent IPO's, ensuring the Equities Team was fully informed of market trends",
+    "Scripted autonomous Python applet that tracked and processed recent IPO's",
     "Assisted senior technology team in full database encryption and security monitoring"
 ]

@@ -1,16 +1,21 @@
-import os
-import tomllib
+#!/usr/bin/env python3
+"""
+A tiny Flask app to render a resume template.
+"""
+from os import environ as _environ
+from tomllib import load as _load
 
-from flask_sslify import SSLify
 from flask import Flask, render_template
 
 app = Flask(__name__)
 
 with open("resume_config.toml", "rb") as f:
-    template_config = tomllib.load(f)
+    template_config = _load(f)
 
-if "DYNO" in os.environ:
-    sslify = SSLify(app)
+if "DYNO" in _environ:
+    from flask_sslify import SSLify
+
+    SSLify(app)
 
 
 @app.route("/")
