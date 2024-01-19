@@ -1,0 +1,76 @@
+[info]
+title = "Zachary Spar - Resume"
+charset = "UTF-8"
+viewport = "width=device-width, initial-scale=1"
+
+[styles]
+css = ["https://www.w3schools.com/w3css/4/w3.css", "https://fonts.googleapis.com/css?family=Roboto", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]
+
+[body]
+class = "w3-light-grey"
+
+[image]
+src = "{{ url_for('static', filename='home/SPAR_headshot.jpeg') }}"
+alt = "Headshot"
+
+[personal_info]
+name = "Zachary Spar"
+position = "Backend Software Engineer"
+location = "New York, NY"
+email = "zachspar@gmail.com"
+phone = "(914) 486-8258"
+
+[tools_frameworks]
+list = ["Linux / Unix", "Django (Original / REST / Channels)", "Flask", "Nginx", "AWS", "Git", "Batch / BCP / ETL"]
+
+[languages]
+list = ["Python (2 & 3)", "Perl", "C++", "Java", "SQL"]
+
+[[education]]
+university = "UNIVERSITY OF MICHIGAN"
+college = "College of Engineering"
+location = "Ann Arbor, MI"
+year = "2015 - 2019"
+degree = "Bachelor of Science in Engineering, May 2019"
+major = "Computer Science"
+
+[[work_experience]]
+company = "MORGAN STANLEY - E*TRADE"
+year = "2019 - Current"
+tasks = [
+    "Upgraded out-of-date IPO services and interfaces for middle office advisors",
+    "Assembled real-time IPO service pipeline for deals and customer orders flowing from E*TRADE to Morgan Stanley",
+    "Composed and documented critical daily batch processes for advisor equities, mutual funds, and fees",
+    "Delineated and optimized legacy C services",
+    "Scripted bulk copy programs to facilitate management fee calculations and analysis",
+    "Produced manipulable Job Control Language code generator written in Python"
+]
+
+[[work_experience]]
+company = "UNDERGROUND SOUND (My side hustle)"
+year = "2020 - Current"
+tasks = [
+    "Co-founder, current acting CTO, backend system architect & engineer, and product manager",
+    "Implemented fault-tolerant & auto-scaled backend system to run API and websocket servers",
+    "Built continuous integration pipeline for staging and production, resulting in zero downtime application updates",
+    "Maintain version control, test suites, API & websocket framework documentation and general application deployments"
+]
+
+[[work_experience]]
+company = "DARKOWL"
+year = "2018"
+tasks = [
+    "Designed plugin transforms analyzing API sourced data to visually display sensitive information on the Maltego software platform",
+    "Developed client-requested dynamic display of customizable data characteristics using company API",
+    "Illustrated client-facing Python library, facilitating access to proprietary DarkOwl API",
+    "Optimized internal legacy processes with streamlined programming using Python and Java"
+]
+
+[[work_experience]]
+company = "ELLIOTT MANAGEMENT CORPORATION"
+year = "2017"
+tasks = [
+    "Constructed interactive graphic portfolio interface displaying relevant financial indicators for company-held securities",
+    "Scripted autonomous Python applet that tracked and processed recent IPO's, ensuring the Equities Team was fully informed of market trends",
+    "Assisted senior technology team in full database encryption and security monitoring"
+]

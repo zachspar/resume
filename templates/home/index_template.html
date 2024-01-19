@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ info.title }}</title>
+    <meta charset="{{ info.charset }}">
+    <meta name="viewport" content="{{ info.viewport }}">
+    {% for style in styles.css %}
+        <link rel="stylesheet" href="{{ style }}">
+    {% endfor %}
+    <style>
+        html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+    </style>
+</head>
+<body class="{{ body.class }}">
+
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+    <div class="w3-row-padding">
+
+        <!-- Left Column -->
+        <div class="w3-third">
+            <div class="w3-white w3-text-grey w3-card-4">
+                <div class="w3-display-container">
+                    <img src="{{ left_column[0].image }}" style="width:100%" alt="Headshot">
+                    <div class="w3-display-bottomleft w3-container w3-text-black">
+                        <h2>{{ left_column[0].name }}</h2>
+                    </div>
+                </div>
+                <div class="w3-container">
+                    <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-blue"></i>{{ left_column[0].position }}</p>
+                    <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-blue"></i>{{ left_column[0].location }}</p>
+                    <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-blue"></i>{{ left_column[0].email }}</p>
+                    <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-blue"></i>{{ left_column[0].phone }}</p>
+                    <hr>
+
+                    <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-blue"></i>Tools / Frameworks</b></p>
+                    <ul>
+                        {% for tool in left_column[1].tools_frameworks %}
+                            <li><p>{{ tool.tool }}</p></li>
+                        {% endfor %}
+                    </ul>
+                    <hr>
+                    <p class="w3-large w3-text-theme"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-blue"></i>Languages</b></p>
+                    <ul>
+                        {% for language in left_column[2].languages %}
+                            <li><p>{{ language.language }}</p></li>
+                        {% endfor %}
+                    </ul>
+                    <br>
+                </div>
+            </div><br>
+        </div>
+
+        <!-- Right Column -->
+        <div class="w3-twothird">
+            <!-- Education Section -->
+            <div class="w3-container w3-card w3-white">
+                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-blue"></i>Education</h2>
+                <div class="w3-container">
+                    {% for edu in right_column.education %}
+                        <h5 class="w3-opacity"><b class="w3-hover-yellow">{{ edu.university }}</b></h5>
+                        <h7 class="w3-opacity"><b class="w3-hover-blue">{{ edu.college }}</b></h7>
+                        <br>
+                        <h8 class="w3-opacity"><b>{{ edu.location }}</b></h8>
+                        <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ edu.year }}</h6>
+                        <p>{{ edu.degree }}</p>
+                        <p>Major: {{ edu.major }}</p>
+                        <br>
+                    {% endfor %}
+                </div>
+            </div>
+            <br>
+
+            <!-- Work Experience Section -->
+            {% for work_exp in right_column.work_experience %}
+                <div class="w3-container w3-card w3-white w3-margin-bottom">
+                    <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-blue"></i>Work Experience</h2>
+                    <div class="w3-container">
+                        <h5 class="w3-opacity"><b>{{ work_exp.company }}</b></h5>
+                        <h6 class="w3-text-blue"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ work_exp.year }}</h6>
+                        <ul>
+                            {% for task in work_exp.tasks %}
+                                <li><p>{{ task }}</p></li>
+                            {% endfor %}
+                        </ul>
+                        <hr>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
