@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     strategy:
       max-parallel: 4
       matrix:
@@ -17,10 +17,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
     - uses: psf/black@stable
       name: Lint
       with:
-        args: --check --line-length 120 .
+        options: --check --line-length 120 .
 
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v5
