@@ -4,8 +4,8 @@ name: Render & Publish Pages
 on:
   push:
     branches:
+      - main
       - master
-      - feat/gh-pages
 
 defaults:
   run:
