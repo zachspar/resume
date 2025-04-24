@@ -8,7 +8,7 @@ it and update `resume_config.toml` with your information accordingly.
 You should also update any static files to include your headshot if desired.
 
 ### GitHub Pages Deployment
-By default, this repo will attempt to publish to GitHub pages from the `master` branch.
+By default, this repo will attempt to publish to GitHub pages from the `main` or `master` branch.
 
 ### Heroku Deployment
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
