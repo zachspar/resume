@@ -15,7 +15,7 @@ def mock_url_for(endpoint, **kwargs):
     """
     if endpoint == "static":
         filename = kwargs.get("filename", "")
-        return f"/resume/static/{filename}"
+        return f"/static/{filename}"
     return f"/{endpoint}"
 
 
