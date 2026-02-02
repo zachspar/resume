@@ -92,5 +92,5 @@ jobs:
 
     - name: Package and push Helm chart
       run: |
-        helm package helm/resume --version $GITHUB_TAG --app-version $GITHUB_TAG
-        helm push resume-$GITHUB_TAG.tgz oci://ghcr.io/${{ github.repository }}/chart
+        helm package helm --version $GITHUB_TAG --app-version $GITHUB_TAG
+        helm push chart-$GITHUB_TAG.tgz oci://ghcr.io/${{ github.repository }}/chart
