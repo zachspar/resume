@@ -2,6 +2,7 @@
 """
 A tiny Flask app to render a resume template.
 """
+
 from os import environ as _environ
 from tomllib import load as _load
 

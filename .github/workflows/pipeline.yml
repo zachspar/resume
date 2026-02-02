@@ -1,21 +1,35 @@
 ---
-name: Lint & Install Pipeline
+name: CI Pipeline
 
-on:
+"on":
   push:
-    branches: [ master ]
+    branches:
+     - main
+     - master
   pull_request:
-    branches: [ master ]
+    branches:
+     - main
+     - master
+  release:
+    types:
+     - published
+
+defaults:
+  run:
+    shell: bash
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     strategy:
-      max-parallel: 4
+      max-parallel: 5
+      fail-fast: false
       matrix:
-        python-version: ["3.9", "3.10", "3.11", "3.12"]
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+    permissions:
+      contents: read
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
 
     - uses: psf/black@stable
       name: Lint
@@ -23,7 +37,7 @@ jobs:
         options: --check --line-length 79 .
 
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v6
       with:
         python-version: ${{ matrix.python-version }}
 
@@ -32,3 +46,51 @@ jobs:
         python3 -m pip install --upgrade pip
         python3 -m pip install -r requirements.txt
 
+  release:
+    if: github.event_name == 'release'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      packages: write
+    env:
+      GITHUB_TAG: ${{ github.event.release.tag_name }}
+      GITHUB_SHA: ${{ github.sha }}
+      GHCR_REGISTRY: ghcr.io/${{ github.repository }}/server
+    steps:
+    - uses: actions/checkout@v6
+
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v3
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ github.token }}
+
+    - name: Build and push
+      uses: docker/build-push-action@v6
+      with:
+        push: true
+        tags: |
+          ${{ env.GHCR_REGISTRY }}:${{ env.GITHUB_TAG }}
+          ${{ env.GHCR_REGISTRY }}:${{ env.GITHUB_SHA }}
+          ${{ env.GHCR_REGISTRY }}:latest
+        context: .
+        file: Dockerfile
+        platforms: linux/amd64,linux/arm64
+
+    - name: Set up Helm
+      uses: azure/setup-helm@v4
+
+    - name: Login to GHCR for Helm
+      run: echo ${{ github.token }} | helm registry login ghcr.io -u ${{ github.actor }} --password-stdin
+
+    - name: Package and push Helm chart
+      run: |
+        helm package helm/resume --version $GITHUB_TAG --app-version $GITHUB_TAG
+        helm push resume-$GITHUB_TAG.tgz oci://ghcr.io/${{ github.repository }}/chart
