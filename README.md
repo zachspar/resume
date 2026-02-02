@@ -13,23 +13,16 @@ You should also update any static files to include your headshot if desired.
 By default, this repo will publish to GitHub pages from the `main` or `master` branch.
 
 ### Kubernetes Deployment
-Build and push the Docker image, then deploy using Helm:
+The CI pipeline automatically builds and pushes the Docker image to GHCR on release.
+
+Deploy using Helm:
 
 ```bash
-# Build the image
-docker build -t your-registry/resume:latest .
-
-# Push to your registry
-docker push your-registry/resume:latest
-
 # Deploy with Helm
-helm install resume ./helm/resume \
-  --set image.repository=your-registry/resume \
-  --set image.tag=latest
+helm install resume oci://ghcr.io/<username>/resume/chart --version <release-tag>
 
 # Or with ingress enabled
-helm install resume ./helm/resume \
-  --set image.repository=your-registry/resume \
+helm install resume oci://ghcr.io/<username>/resume/chart --version <release-tag> \
   --set ingress.enabled=true \
   --set ingress.hosts[0].host=resume.yourdomain.com \
   --set ingress.hosts[0].paths[0].path=/ \
