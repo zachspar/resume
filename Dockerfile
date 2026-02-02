@@ -7,6 +7,8 @@ RUN pip install --no-cache-dir --user -r requirements.txt
 
 FROM cgr.dev/chainguard/python:latest
 
+ENV TMPDIR=/home/nonroot
+
 WORKDIR /app
 
 COPY --from=builder /home/nonroot/.local /home/nonroot/.local
