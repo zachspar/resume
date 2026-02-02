@@ -1,0 +1,6 @@
+apiVersion: v2
+name: resume
+description: A Helm chart for deploying the Resume Flask application
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
