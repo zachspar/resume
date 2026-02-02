@@ -12,11 +12,12 @@ def mock_url_for(endpoint, **kwargs):
     """
     Mock url_for function for Jinja2 templates.
     Returns static file paths or endpoint routes.
+    Uses relative paths to work correctly on GitHub Pages project sites.
     """
     if endpoint == "static":
         filename = kwargs.get("filename", "")
-        return f"/static/{filename}"
-    return f"/{endpoint}"
+        return f"static/{filename}"
+    return endpoint
 
 
 def main():
