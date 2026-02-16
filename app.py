@@ -24,5 +24,10 @@ def index():
     return render_template("home/index_template.html", **template_config)
 
 
+@app.get("/healthz")
+def health():
+    return {"status": "ok"}
+
+
 if __name__ == "__main__":
     app.run()
