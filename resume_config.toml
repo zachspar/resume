@@ -4,10 +4,13 @@ charset = "UTF-8"
 viewport = "width=device-width, initial-scale=1"
 
 [styles]
-css = ["https://www.w3schools.com/w3css/4/w3.css", "https://fonts.googleapis.com/css?family=Roboto", "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"]
+css = [
+    "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+    "static/home/resume.css",
+]
 
 [body]
-class = "w3-light-grey"
+class = "resume"
 
 [image]
 src = ""  # you can either specify an image URL
@@ -37,7 +40,7 @@ college = "College of Engineering"
 location = "Ann Arbor, MI"
 year = "2015 - 2019"
 degree = "Bachelor of Science in Engineering, May 2019"
-major = "Computer Science"
+major = "Computer Science Engineering"
 
 [[work_experience]]
 company = "Ampla Technologies, New York, NY"
